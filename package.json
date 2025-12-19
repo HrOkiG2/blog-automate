@@ -1,0 +1,60 @@
+{
+  "name": "blog-automation",
+  "version": "0.1",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "build": "tsc",
+    "dev": "ts-node --watch src/index.ts",
+    "api:auth:check": "ts-node src/services/api/authCheck.ts",
+    "lint": "eslint 'src/**/*.ts'",
+    "lint:fix": "eslint 'src/**/*.ts' --fix",
+    "format": "prettier --write 'src/**/*.{ts,json}'",
+    "format:check": "prettier --check 'src/**/*.{ts,json}'",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "blog",
+    "automation",
+    "ollama",
+    "llm",
+    "ai",
+    "kaigo",
+    "welfare"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "ブログ記事自動生成システム",
+  "devDependencies": {
+    "@types/node": "^25.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.50.0",
+    "@typescript-eslint/parser": "^8.50.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/node-cron": "^3.0.11",
+    "axios": "^1.13.2",
+    "better-sqlite3": "^12.5.0",
+    "dotenv": "^17.2.3",
+    "node-cron": "^4.2.1",
+    "zod": "^4.2.1"
+  },
+  "lint-staged": {
+    "src/**/*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.json": [
+      "prettier --write"
+    ]
+  }
+}
