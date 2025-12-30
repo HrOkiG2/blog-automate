@@ -30,3 +30,7 @@ Homestead.json
 .env.production
 .phpactor.json
 auth.json
+
+src/ollama/Modelfile
+src/ollama/Modelfile.content
+src/ollama/Modelfile.seo

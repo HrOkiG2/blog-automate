@@ -7,6 +7,11 @@
     "build": "tsc",
     "dev": "ts-node --watch src/index.ts",
     "api:auth:check": "ts-node src/services/api/authCheck.ts",
+    "ollama:create": "ts-node -r tsconfig-paths/register src/scripts/createOllamaModel.ts",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest --coverage",
+    "test:watch": "vitest --watch",
     "lint": "eslint 'src/**/*.ts'",
     "lint:fix": "eslint 'src/**/*.ts' --fix",
     "format": "prettier --write 'src/**/*.{ts,json}'",
@@ -29,6 +34,8 @@
     "@types/node": "^25.0.2",
     "@typescript-eslint/eslint-plugin": "^8.50.0",
     "@typescript-eslint/parser": "^8.50.0",
+    "@vitest/ui": "^4.0.16",
+    "axios-mock-adapter": "^2.1.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
@@ -37,7 +44,8 @@
     "prettier": "^3.7.4",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
-    "typescript": "^5.9.3"
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.16"
   },
   "dependencies": {
     "@types/better-sqlite3": "^7.6.13",
