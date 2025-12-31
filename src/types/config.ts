@@ -2,6 +2,8 @@ export interface Config {
     ollama: {
         baseUrl: string;
         modelName: string;
+        contentModel: string;
+        seoModel: string;
         timeout: number;
     };
     laravel: {

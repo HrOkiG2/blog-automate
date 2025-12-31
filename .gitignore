@@ -34,3 +34,8 @@ auth.json
 src/ollama/Modelfile
 src/ollama/Modelfile.content
 src/ollama/Modelfile.seo
+
+src/data/ARTICLE_CATEGORIES.json
+src/data/article.csv
+src/data/persona.csv
+src/data/seo-keyword.csv

@@ -8,6 +8,7 @@
     "dev": "ts-node --watch src/index.ts",
     "api:auth:check": "ts-node src/services/api/authCheck.ts",
     "ollama:create": "ts-node -r tsconfig-paths/register src/scripts/createOllamaModel.ts",
+    "article:generate": "ts-node -r tsconfig-paths/register src/scripts/generateArticles.ts",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",

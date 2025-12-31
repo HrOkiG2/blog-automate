@@ -11,6 +11,11 @@ function loadConfig(): Config {
         ollama: {
             baseUrl: process.env.OLLAMA_BASE_URL || 'http://localhost:11434',
             modelName: process.env.OLLAMA_MODEL_NAME || 'kaigo-expert',
+            contentModel:
+                process.env.OLLAMA_CONTENT_MODEL ||
+                process.env.OLLAMA_MODEL_NAME ||
+                'kaigo-content',
+            seoModel: process.env.OLLAMA_SEO_MODEL || process.env.OLLAMA_MODEL_NAME || 'kaigo-seo',
             timeout: parseInt(process.env.OLLAMA_TIMEOUT || '120000', 10),
         },
         laravel: {
