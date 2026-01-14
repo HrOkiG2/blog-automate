@@ -9,6 +9,16 @@ vi.mock('@/services/article/seoOptimizer');
 vi.mock('@/util/outputConsole', () => ({
     outputConsole: vi.fn(),
 }));
+vi.mock('@/util/categoryMapper', () => ({
+    getCategoryIdFromPersona: vi.fn((category: string) => {
+        const mapping: { [key: string]: number } = {
+            現役施設介護士: 3,
+            潜在有資格者: 2,
+            '収入・条件重視': 1,
+        };
+        return mapping[category];
+    }),
+}));
 
 describe('articlePipeline', () => {
     const mockInput: ArticleGenerationInput = {
@@ -58,7 +68,7 @@ describe('articlePipeline', () => {
             expect(seoOptimizer.optimizeArticleForSEO).toHaveBeenCalledWith(mockDraft, mockInput);
 
             expect(result).toEqual({
-                category_id: 'A-01',
+                category_id: '3', // 現役施設介護士 → category ID 3
                 title: '介護職におすすめの副業5選【2024年最新版】',
                 body: '# 介護職におすすめの副業\n介護職の皆さん...',
                 slug: 'kaigo-fukugyo',

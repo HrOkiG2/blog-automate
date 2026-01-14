@@ -2,6 +2,8 @@ import { ArticleGenerationInput, ArticleData } from '@/types/article';
 import { generateArticleDraft } from './articleGenerator';
 import { optimizeArticleForSEO } from './seoOptimizer';
 import { outputConsole } from '@/util/outputConsole';
+import { getCategoryIdFromPersona } from '@/util/categoryMapper';
+import { sleep } from '@/util/common';
 
 /**
  * 2段階の記事生成パイプライン
@@ -23,9 +25,12 @@ export async function generateArticle(input: ArticleGenerationInput): Promise<Ar
     const optimized = await optimizeArticleForSEO(draft, input);
     outputConsole('success', `  ✓ SEO最適化完了: ${optimized.title}`);
 
+    // ペルソナカテゴリから数値カテゴリIDに変換
+    const categoryId = getCategoryIdFromPersona(input.persona.Category);
+
     // ArticleData形式に変換
     const article: ArticleData = {
-        category_id: seoKeyword.ID,
+        category_id: categoryId.toString(),
         title: optimized.title,
         body: optimized.body,
         slug: optimized.slug,
@@ -73,11 +78,4 @@ export async function generateMultipleArticles(
         `\n全体完了: ${articles.length}/${inputs.length}件の記事を生成しました`
     );
     return articles;
-}
-
-/**
- * 指定時間待機する
- */
-function sleep(ms: number): Promise<void> {
-    return new Promise((resolve) => setTimeout(resolve, ms));
 }

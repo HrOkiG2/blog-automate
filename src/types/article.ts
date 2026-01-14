@@ -26,7 +26,7 @@ export interface SeoKeywordData {
  */
 export interface ArticleData {
     id?: number;
-    category_id: string;
+    category_id: string | number;
     title: string;
     body: string;
     slug: string;
